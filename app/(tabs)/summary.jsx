@@ -1,12 +1,10 @@
 import { Text } from 'react-native';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import DefaultTabView from '../../components/DefaultTabView'
 
 export default function TabTwoScreen() {
     return (
-        <ParallaxScrollView
-            headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-        >
+        <DefaultTabView>
             <Text style={{ color: "white" }}>tab 3</Text>
-        </ParallaxScrollView>
+        </DefaultTabView>
     );
 } 
