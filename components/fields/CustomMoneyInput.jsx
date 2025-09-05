@@ -13,7 +13,7 @@ const CustomMoneyInput = ({ label, value, onChangeText, placeholder = "R$ 0,00" 
 
     return (
         <View style={styles.container}>
-            {label && <Text style={styles.label}>{label}</Text>}
+            {label && <Text style={DefaultStyledFields.label}>{label}</Text>}
             <TextInput
                 style={DefaultStyledFields.input}
                 placeholder={placeholder}
@@ -26,8 +26,7 @@ const CustomMoneyInput = ({ label, value, onChangeText, placeholder = "R$ 0,00" 
 };
 
 const styles = StyleSheet.create({
-    container: { marginVertical: 8 },
-    label: { fontSize: 14, marginBottom: 4, color: '#444' },
+    container: { marginVertical: 8 }, 
 });
 
 export default CustomMoneyInput;

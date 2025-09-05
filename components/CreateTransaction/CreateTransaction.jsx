@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, View } from 'react-native';
+import { Pressable, StyleSheet, View, Text } from 'react-native';
 import CustomTextInput from '../../components/fields/CustomTextInput';
 import CustomDateInput from '../../components/fields/CustomDateInput';
 import CustomMoneyInput from '../../components/fields/CustomMoneyInput';
@@ -15,7 +15,6 @@ const CreateTransaction = () => {
     const [category, setCategory] = useState('');
 
     const createTransactionItem = (e) => {
-        console.log(e)
 
         const obj = {
             name,
@@ -28,7 +27,7 @@ const CreateTransaction = () => {
     }
 
     return (
-        <View style={{ padding: 20, backgroundColor: 'aliceblue' }}>
+        <View style={styles.createTransactionContainer}>
             <CustomTextInput
                 label="Descrição"
                 placeholder="Descrição do item"
@@ -52,12 +51,40 @@ const CreateTransaction = () => {
                 options={categories}
                 placeholder="Selecione uma categoria"
             />
-            <Button
-                title="Criar transação"
-                onPress={(e) => createTransactionItem(e)}
-            />
+
+            <Pressable
+                onPress={() => createTransactionItem()}
+                style={styles.button}>
+                <Text style={styles.text}>
+                    Criar transação
+                </Text>
+            </Pressable>
         </View>
     )
 }
 
 export default CreateTransaction
+
+const styles = StyleSheet.create({
+    createTransactionContainer: {
+        padding: 20,
+        flex: '1',
+        height: '100%',
+        display: 'flex',
+        gap: '10',
+        justifyContent: 'center'
+    },
+    button: {
+        marginVertical: 20,
+        backgroundColor: 'purple',
+        paddingVertical: 16,
+        paddingHorizontal: 16,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    text: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+});

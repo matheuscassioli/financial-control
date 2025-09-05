@@ -13,16 +13,19 @@ const CustomDateInput = ({ label, value, onChange }) => {
 
     return (
         <View style={styles.container}>
-            {label && <Text style={styles.label}>{label}</Text>}
+            {label && <Text style={DefaultStyledFields.label}>{label}</Text>}
             <Pressable style={DefaultStyledFields.input} onPress={() => setShow(true)}>
-                <Text>{value ? value.toLocaleDateString() : 'Selecione a data'}</Text>
+                <Text style={{ color: value ? 'white' : "gray" }}>{value ? value.toLocaleDateString() : 'Selecione a data'}</Text>
             </Pressable>
             {show && (
                 <DateTimePicker
                     value={value || new Date()}
                     mode="date"
                     display="default"
-                    style={{ backgroundColor: 'grey', position: 'absolute', top: 10, color: 'white' }}
+                    style={{
+                        backgroundColor: 'black',
+                        position: 'absolute', top: 10, color: 'white'
+                    }}
                     onChange={handleChange}
                 />
             )}
@@ -32,7 +35,6 @@ const CustomDateInput = ({ label, value, onChange }) => {
 
 const styles = StyleSheet.create({
     container: { marginVertical: 8 },
-    label: { fontSize: 14, marginBottom: 4, color: '#444' },
 });
 
 export default CustomDateInput;

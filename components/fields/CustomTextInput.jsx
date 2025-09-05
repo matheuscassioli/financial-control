@@ -14,7 +14,7 @@ const CustomTextInput = ({
 }) => {
     return (
         <View style={styles.container} >
-            {label && <Text style={styles.label}> {label} </Text>}
+            {label && <Text style={DefaultStyledFields.label}> {label} </Text>}
             <TextInput
                 style={[DefaultStyledFields.input, style]}
                 placeholder={placeholder}
@@ -30,13 +30,7 @@ const CustomTextInput = ({
 const styles = StyleSheet.create({
     container: {
         marginVertical: 8,
-    },
-    label: {
-        fontSize: 14,
-        marginBottom: 4,
-        color: '#444',
-    },
-
+    },  
 });
 
 export default CustomTextInput;

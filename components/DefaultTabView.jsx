@@ -14,14 +14,14 @@ export default DefaultTabView;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey'
+    backgroundColor: 'black'
   },
   content: {
     flex: 1,
-    padding: 32,
+    paddingVertical: 20,
+    paddingHorizontal: 10,
     gap: 16,
     overflow: 'hidden',
     color: 'white',
-
   },
 });

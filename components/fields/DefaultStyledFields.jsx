@@ -7,6 +7,13 @@ export const DefaultStyledFields = StyleSheet.create({
         borderRadius: 8,
         padding: 12,
         fontSize: 16,
-        backgroundColor: '#fff',
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    label: {
+        fontSize: 14,
+        marginBottom: 4,
+        color: '#fff',
+        fontWeight: '500'
     },
 });

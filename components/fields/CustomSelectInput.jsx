@@ -12,7 +12,7 @@ const CustomSelectInput = ({ label, value, onChange, options = [], placeholder =
 
     return (
         <View style={styles.container}>
-            {label && <Text style={styles.label}>{label}</Text>}
+            {label && <Text style={DefaultStyledFields.label}>{label}</Text>}
 
             <Pressable
                 style={DefaultStyledFields.input}
@@ -43,10 +43,9 @@ const CustomSelectInput = ({ label, value, onChange, options = [], placeholder =
 };
 
 const styles = StyleSheet.create({
-    container: { marginVertical: 8 },
-    label: { fontSize: 14, marginBottom: 4, color: '#444' },
+    container: { marginVertical: 8 }, 
     placeholderText: { color: '#999' },
-    valueText: { color: '#000' },
+    valueText: { color: 'white' },
     modalOverlay: {
         flex: 1,
         backgroundColor: 'rgba(0,0,0,0.3)',
