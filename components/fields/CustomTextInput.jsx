@@ -1,5 +1,7 @@
 import React from 'react';
 import { TextInput, StyleSheet, View, Text } from 'react-native';
+import { DefaultStyledFields } from './DefaultStyledFields';
+
 
 const CustomTextInput = ({
     label,
@@ -14,7 +16,7 @@ const CustomTextInput = ({
         <View style={styles.container} >
             {label && <Text style={styles.label}> {label} </Text>}
             <TextInput
-                style={[styles.input, style]}
+                style={[DefaultStyledFields.input, style]}
                 placeholder={placeholder}
                 value={value}
                 onChangeText={onChangeText}
@@ -34,14 +36,7 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         color: '#444',
     },
-    input: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 8,
-        padding: 12,
-        fontSize: 16,
-        backgroundColor: '#fff',
-    },
+
 });
 
 export default CustomTextInput;
