@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import RenderIconTransaction from '../RenderIconTransaction/RenderIconTransaction'
 
 const ItemTransaction = ({ data }) => {
     console.log(data)
@@ -14,10 +15,8 @@ const ItemTransaction = ({ data }) => {
 
     return (
         <View style={styles.itemList}>
-            <View
-                style={styles.iconCategoryContainer}>
-                <Text>dentro</Text>
-            </View >
+
+            <RenderIconTransaction category={data?.category} />
 
             <View style={styles.infosContainer}>
                 <View>
@@ -41,16 +40,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flexDirection: 'row',
         borderRadius: 10
-    },
-    iconCategoryContainer: {
-        backgroundColor: 'red',
-        borderRadius: 35,
-        width: '60',
-        height: '60',
-        margin: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
     infosContainer: {
         flexDirection: 'row',

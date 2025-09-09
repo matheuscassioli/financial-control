@@ -10,7 +10,7 @@ const CreateTransaction = () => {
 
     const { list, addTransaction } = useContext(TransactionsContext)
 
-    const categories = ['Alimentação', 'Transporte', 'Saúde', 'Lazer'];
+    const categories = ['alimentação', 'transporte', 'saude', 'lazer'];
 
     const [name, setName] = useState('');
     const [date, setDate] = useState('');

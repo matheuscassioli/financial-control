@@ -19,6 +19,21 @@ export function TransactionsProvider({ children }) {
             category: 'lazer',
             value: "12,00",
             date: '2025-10-01T01:20:00.000Z'
+        },
+        {
+            category: 'saude',
+            value: "12,00",
+            date: '2025-10-01T01:20:00.000Z'
+        },
+        {
+            category: 'alimentação',
+            value: "12,00",
+            date: '2025-10-01T01:20:00.000Z'
+        },
+        {
+            category: 'transporte',
+            value: "12,00",
+            date: '2025-10-01T01:20:00.000Z'
         }
     ])
 
