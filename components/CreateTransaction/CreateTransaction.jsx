@@ -63,7 +63,6 @@ const CreateTransaction = () => {
                 options={categories}
                 placeholder="Selecione uma categoria" />
 
-
         </View>
     )
 }
