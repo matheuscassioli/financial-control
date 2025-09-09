@@ -17,8 +17,7 @@ const CreateTransaction = () => {
     const [value, setValue] = useState('');
     const [category, setCategory] = useState('');
 
-    const createTransactionItem = (e) => {
-
+    const createTransactionItem = () => {
         const obj = {
             name,
             value,

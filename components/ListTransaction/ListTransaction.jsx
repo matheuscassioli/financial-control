@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, View } from 'react-native'
 import ItemTransaction from './ItemTransaction/ItemTransaction'
 
 const ListTransaction = () => {

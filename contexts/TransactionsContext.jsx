@@ -4,7 +4,23 @@ export const TransactionsContext = createContext();
 
 export function TransactionsProvider({ children }) {
 
-    const [list, setList] = useState([])
+    const [list, setList] = useState([
+        {
+            category: 'lazer',
+            value: "12,00",
+            date: '2025-10-01T01:20:00.000Z'
+        },
+        {
+            category: 'alimentação',
+            value: "1000,00",
+            date: '2025-10-01T01:20:00.000Z'
+        },
+        {
+            category: 'lazer',
+            value: "12,00",
+            date: '2025-10-01T01:20:00.000Z'
+        }
+    ])
 
     const addTransaction = (obj) => {
         setList(prevState => ([
