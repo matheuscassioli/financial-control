@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Pressable, StyleSheet, View, Text } from 'react-native';
 import CustomTextInput from '../../components/fields/CustomTextInput';
 import CustomDateInput from '../../components/fields/CustomDateInput';
 import CustomMoneyInput from '../../components/fields/CustomMoneyInput';
 import CustomSelectInput from '../../components/fields/CustomSelectInput';
+import { TransactionsContext } from '@/contexts/TransactionsContext';
 
 const CreateTransaction = () => {
+
+    const { list, addTransaction } = useContext(TransactionsContext)
 
     const categories = ['Alimentação', 'Transporte', 'Saúde', 'Lazer'];
 
@@ -20,37 +23,15 @@ const CreateTransaction = () => {
             name,
             value,
             date,
-            category
+            category,
+            id: list.length
         }
-
-        console.log(obj, 'envia objeto para api fake')
+        addTransaction(obj)
     }
 
     return (
-        <View style={styles.createTransactionContainer}>
-            <CustomTextInput
-                label="Descrição"
-                placeholder="Descrição do item"
-                value={name}
-                onChangeText={setName}
-            />
-            <CustomMoneyInput
-                label="Valor"
-                value={value}
-                onChangeText={setValue}
-            />
-            <CustomDateInput
-                label="Data"
-                value={date}
-                onChange={setDate}
-            />
-            <CustomSelectInput
-                label="Categoria"
-                value={category}
-                onChange={setCategory}
-                options={categories}
-                placeholder="Selecione uma categoria"
-            />
+        <View
+            style={styles.createTransactionContainer}>
 
             <Pressable
                 onPress={() => createTransactionItem()}
@@ -59,6 +40,31 @@ const CreateTransaction = () => {
                     Criar transação
                 </Text>
             </Pressable>
+
+            <CustomTextInput
+                label="Descrição"
+                placeholder="Descrição do item"
+                value={name}
+                onChangeText={setName} />
+
+            <CustomMoneyInput
+                label="Valor"
+                value={value}
+                onChangeText={setValue} />
+
+            <CustomDateInput
+                label="Data"
+                value={date}
+                onChange={setDate} />
+
+            <CustomSelectInput
+                label="Categoria"
+                value={category}
+                onChange={setCategory}
+                options={categories}
+                placeholder="Selecione uma categoria" />
+
+
         </View>
     )
 }

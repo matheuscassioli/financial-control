@@ -1,11 +1,12 @@
 import DefaultTabView from '@/components/DefaultTabView';
-import { StyleSheet, Text } from 'react-native';
+import { Text } from 'react-native';
+import ListTransaction from '../../components/ListTransaction/ListTransaction'
 
 export default function TransationScreen() {
   return (
     <DefaultTabView>
       <Text >
-        Transações
+        <ListTransaction />
       </Text>
     </DefaultTabView>
   );
