@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Pressable, StyleSheet, View, Text } from 'react-native';
+import { Pressable, StyleSheet, View, Text, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import CustomTextInput from '../../components/fields/CustomTextInput';
 import CustomDateInput from '../../components/fields/CustomDateInput';
 import CustomMoneyInput from '../../components/fields/CustomMoneyInput';
@@ -23,47 +23,49 @@ const CreateTransaction = () => {
             value,
             date,
             category,
-            id: list.length
+            id: Date.now()
         }
         addTransaction(obj)
     }
 
     return (
-        <View
-            style={styles.createTransactionContainer}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View
+                style={styles.createTransactionContainer}>
 
-            <Pressable
-                onPress={() => createTransactionItem()}
-                style={styles.button}>
-                <Text style={styles.text}>
-                    Criar transação
-                </Text>
-            </Pressable>
 
-            <CustomTextInput
-                label="Descrição"
-                placeholder="Descrição do item"
-                value={name}
-                onChangeText={setName} />
+                <CustomTextInput
+                    label="Descrição"
+                    placeholder="Descrição do item"
+                    value={name}
+                    onChangeText={setName} />
 
-            <CustomMoneyInput
-                label="Valor"
-                value={value}
-                onChangeText={setValue} />
+                <CustomMoneyInput
+                    label="Valor"
+                    value={value}
+                    onChangeText={setValue} />
 
-            <CustomDateInput
-                label="Data"
-                value={date}
-                onChange={setDate} />
+                <CustomDateInput
+                    label="Data"
+                    value={date}
+                    onChange={setDate} />
 
-            <CustomSelectInput
-                label="Categoria"
-                value={category}
-                onChange={setCategory}
-                options={categories}
-                placeholder="Selecione uma categoria" />
+                <CustomSelectInput
+                    label="Categoria"
+                    value={category}
+                    onChange={setCategory}
+                    options={categories}
+                    placeholder="Selecione uma categoria" />
 
-        </View>
+                <Pressable
+                    onPress={() => createTransactionItem()}
+                    style={styles.button}>
+                    <Text style={styles.text}>
+                        Criar transação
+                    </Text>
+                </Pressable>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
