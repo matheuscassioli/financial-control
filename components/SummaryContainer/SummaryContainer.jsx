@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { sharedStyles } from '../../styles/globals'
 
 const SummaryContainer = () => {
 
@@ -23,20 +24,27 @@ const SummaryContainer = () => {
     value: newData[category]
   }))
 
+  const ItemSummary = ({ item }) => {
+    return (<View style={sharedStyles.itemList}>
+      <View style={sharedStyles.infosContainer}>
+        <Text style={sharedStyles.descriptionContainer}>
+          {item?.category}
+        </Text>
+        <Text
+          style={sharedStyles.valueContainer}>
+          {item?.value}
+        </Text>
+      </View>
+    </View>)
+  }
+
   return (
     <View style={styles.summaryContainer}>
-      <Text style={{ color: 'red' }}>
-        SummaryContainer
-      </Text>
-
       <FlatList
         data={finalyData}
         keyExtractor={(item) => item.category}
-        renderItem={({ item }) => (
-          <Text>{item.category}: {item.value}</Text>
-        )}
-        ListEmptyComponent={<Text>Não há resumo</Text>}
-      />
+        renderItem={({ item }) => <ItemSummary item={item} />}
+        ListEmptyComponent={<Text>Não há resumo</Text>} />
     </View>
   )
 }
@@ -44,8 +52,6 @@ export default SummaryContainer
 
 const styles = StyleSheet.create({
   summaryContainer: {
-    color: "red",
     flex: 1,
-    backgroundColor: "yellow"
-  }
+  },
 })
